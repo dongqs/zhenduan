@@ -1,2 +1,8 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<ul class="unstyled">
+<% @blogs.each do |blog| %>
+<li>
+<h3><%= link_to blog.title, blog %></h3>
+<p><%= blog.content[0..1024] %></p>
+</li>
+<% end %>
+</ul>

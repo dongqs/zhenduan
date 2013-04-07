@@ -3,6 +3,7 @@ Duanmao::Application.routes.draw do
   get '/about' => 'static_pages#about'
 
   resources :blogs
+  resources :comments, only: [:create]
   resources :users, only: [:index, :update]
 
   devise_for :users

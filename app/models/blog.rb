@@ -5,4 +5,6 @@ class Blog < ActiveRecord::Base
   validates :title, presence: true
   validates :status, presence: true, inclusion: STATUS
 
+  has_many :comments
+
 end

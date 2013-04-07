@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= @blog.title %>
-</p>
+<h3><%= @blog.title %></h3>
 
 <p>
   <%= @blog.content %>
@@ -13,9 +11,24 @@
   <b>Status:</b>
   <%= @blog.status %>
 </p>
+<%= link_to 'Edit', edit_blog_path(@blog) %>
 <% end %>
 
 <hr>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<h4>Comments</h4>
+<% @blog.comments.each do |comment| %>
+<ul class="unstyled">
+<li>
+<p><b><%= comment.email %>:</b> <%= comment.content %></p>
+</li>
+</ul>
+<% end %>
+
+<% @comment = @blog.comments.new %>
+<%= simple_form_for @comment do |f| %>
+  <%= f.input :blog_id, as: :hidden %>
+  <%= f.input :email, input_html: { value: (user_signed_in? && current_user.email) } %>
+  <%= f.input :content, input_html: { rows: 5  } %>
+  <%= f.submit %>
+<% end %>
