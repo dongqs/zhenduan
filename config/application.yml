@@ -1,0 +1,3 @@
+SYSTEM_EMAIL: admin@example.com
+SYSTEM_PASSWORD: password
+ROLES: [admin, friend, guest]

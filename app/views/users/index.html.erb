@@ -1,0 +1,23 @@
+<h1>Users#index</h1>
+<table class="table">
+<tr>
+  <td>Email</td>
+  <td>Birth</td>
+  <td>Roles</td>
+  <td></td>
+</tr>
+<% @users.each do |user|%>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= time_ago_in_words user.created_at %> ago</td>
+    <td><%= user.roles.collect {|r|r.name}.join(",") unless user.roles.empty? %></td>
+    <td>
+      <% if current_user.has_role? :admin %>
+        <a data-toggle="modal" href="#role-options-<%= user.id %>"
+            class="btn btn-mini" type="button">Change role</a>
+        <%= render user %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
