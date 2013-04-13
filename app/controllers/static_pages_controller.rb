@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     if user_signed_in? && current_user.has_any_role?('admin', 'friend')
       @blogs = Blog.all
     else
-      @blogs = Blog.find_by_status 'public'
+      @blogs = Blog.find_all_by_status 'public'
     end
   end
 
