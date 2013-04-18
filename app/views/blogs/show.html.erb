@@ -2,9 +2,10 @@
 
 <h3><%= @blog.title %></h3>
 
-<p>
-  <%= @blog.content %>
-</p>
+<hr>
+<%= raw md @blog.content %>
+
+<hr>
 
 <% if user_signed_in? && current_user.has_role?(:admin) %>
 <p>

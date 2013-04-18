@@ -1,8 +1,9 @@
 <ul class="unstyled">
 <% @blogs.each do |blog| %>
 <li>
-<h3><%= link_to blog.title, blog %></h3>
-<p><%= blog.content[0..1024] %></p>
+<h3><%= link_to blog.title, blog %></h3><small><%= l blog.created_at, format: :short %></small>
+<p><%= raw md blog.content[0..512] %></p>
 </li>
+<hr>
 <% end %>
 </ul>

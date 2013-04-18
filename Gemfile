@@ -9,6 +9,7 @@ gem 'thin'
 gem 'therubyracer'
 gem 'figaro'
 gem 'cancan'
+gem 'redcarpet'
 
 gem 'rails', '3.2.13'
 
