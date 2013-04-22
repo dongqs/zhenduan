@@ -1,4 +1,9 @@
 class CommentsController < ApplicationController
+
+  def index
+    @comment = Comment.order(:created_at).reverse_order
+  end
+
   # POST /comments
   # POST /comments.json
   def create
