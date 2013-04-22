@@ -3,7 +3,13 @@
     <tr>
       <td><%= comment.email %></td>
       <td><%= comment.content %></td>
-      <td><%= link_to comment.blog.title, comment.blog%></td>
+      <td>
+        <% if comment.blog %>
+          <%= link_to comment.blog.title, comment.blog %>
+        <% else %>
+          deleted
+        <% end %>
+      </td>
       <td><%= l comment.created_at, format: :short %></td>
     </tr>
   <% end %>
