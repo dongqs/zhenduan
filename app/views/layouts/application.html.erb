@@ -70,7 +70,7 @@
             <% if current_user.has_role? :admin %>
               <li><a href="/blogs">Blogs</a></li>
               <li><a href="/users">Users</a></li>
-              <li><a href="/users">Comments</a></li>
+              <li><a href="/comments">Comments</a></li>
             <% end %>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.email %></a>
