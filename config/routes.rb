@@ -4,7 +4,7 @@ Duanmao::Application.routes.draw do
 
   resources :blogs
   resources :comments, only: [:create, :index]
-  resources :users, only: [:index, :update]
+  resources :users, only: [:index, :update, :destroy]
 
   devise_for :users
 
