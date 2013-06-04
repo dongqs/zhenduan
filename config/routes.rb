@@ -2,11 +2,12 @@ Duanmao::Application.routes.draw do
   root to: 'static_pages#home'
   get '/about' => 'static_pages#about'
 
+  devise_for :users
+
   resources :blogs
   resources :comments, only: [:create, :index]
   resources :users, only: [:index, :update, :destroy]
 
-  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
